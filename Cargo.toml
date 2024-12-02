@@ -1,0 +1,16 @@
+[package]
+name = "advent0fc0de2024"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+anyhow = "1.0.93"
+regex = "1.11.1"
+
+[[bin]]
+name = "day01"
+path = "src/day01/mod.rs"
+
+[[bin]]
+name = "day02"
+path = "src/day02/mod.rs"
