@@ -1,31 +1,30 @@
 use anyhow::Result;
 
-pub fn main() -> Result<()> {
-    let content = std::fs::read_to_string("./inputs/day01.txt")?;
-    let content = content.trim();
+fn main() -> Result<()> {
+    let content = std::fs::read_to_string("./src/input.txt")?;
 
-    let data: Vec<Vec<i64>> = content
+    let mut vecc: Vec<(i64, i64)> = content
         .lines()
         .map(|line| {
-            line.split_whitespace()
-                .map(|item| item.parse::<i64>().unwrap())
-                .collect()
+            let parts: Vec<&str> = line.split_whitespace().collect();
+            println!("parts: {:?}", parts);
+            let [left, right] = match parts.as_slice() {
+                [left, right] => [left, right],
+                _ => panic!("Expected exactly two parts"),
+            };
+
+            let left: i64 = left.parse().unwrap();
+            let right: i64 = right.parse().unwrap();
+
+            return (left, right);
         })
         .collect();
 
-    let mut left: Vec<i64> = data.iter().map(|pair| pair[0]).collect();
-    let mut right: Vec<i64> = data.iter().map(|pair| pair[1]).collect();
-
-    left.sort();
-    right.sort();
-
-    let mut sum = 0;
-
-    for i in 0..left.len() {
-        sum += (left[i] - right[i]).abs();
-    }
-
-    println!("ANSWER: {}", sum);
+    let mut left: Vec<&i64> = vecc.iter().map(|(item, _)| item).collect();
+    let mut right: Vec<&i64> = vecc.iter().map(|(item, _)| item).collect();
+    let size = left.len();
+    // while (size > 0) {}
+    println!("left: {:?}", left);
 
     Ok(())
 }

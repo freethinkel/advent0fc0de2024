@@ -3,5 +3,5 @@ mod second;
 
 fn main() {
     //first::run();
-    second::run();
+    let _ = second::run();
 }
