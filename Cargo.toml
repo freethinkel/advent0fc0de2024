@@ -5,6 +5,7 @@ edition = "2021"
 
 [dependencies]
 anyhow = "1.0.93"
+indoc = "2.0.5"
 regex = "1.11.1"
 
 [[bin]]
@@ -26,3 +27,7 @@ path = "src/day04/mod.rs"
 [[bin]]
 name = "day05"
 path = "src/day05/mod.rs"
+
+[[bin]]
+name = "day06"
+path = "src/day06/mod.rs"
